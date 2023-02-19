@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Seattle</title>
+    <link rel="stylesheet" href="styles/base.css">
+  </head>
+  <body>
+    <header>
+      <h1>Discover Seattle</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="discover.html">Discover</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>Explore the City</h2>
+      <p>Welcome to Seattle! Here are some images to give you a taste of what this place has to offer:</p>
+      <div class="gallery">
+        <figure>
+          <img loading="lazy" src="skyline.jpeg" alt="Image 1">
+          <figcaption>A beautiful view of the city skyline at sunset</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="market.jpeg" alt="Image 2">
+          <figcaption>The city's famous outdoor market</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="park.webp" alt="Image 3">
+          <figcaption>A peaceful park with abundant greenery</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="square.jpeg" alt="Image 4">
+          <figcaption>The historic town square, a hub of culture and entertainment</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="street.jpeg" alt="Image 5">
+          <figcaption>A charming street with colorful houses and quaint shops</figcaption>
+        </figure>
+      </div>
+      <p>You last visited this page <span id="daysSinceLastVisit"></span> days ago.</p>
+    </main>
+    <script>
+      // Get the current date
+      const currentDate = new Date();
+      // Get the last visit date from local storage
+      const lastVisit = localStorage.getItem('lastVisit');
+      if (lastVisit) {
+        // If there was a last visit date, calculate the difference in days
+        const daysSinceLastVisit = Math.round((currentDate - new Date(lastVisit)) / (1000 * 60 * 60 * 24));
+        document.getElementById('daysSinceLastVisit').textContent = daysSinceLastVisit;
+      }
+      // Store the current date in local storage for the next visit
+      localStorage.setItem('lastVisit', currentDate.toISOString());
+    </script>
+  </body>
+</html>
